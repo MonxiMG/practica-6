@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 
-class MainActivity : AppCompatActivity(), FilmListFragment.OnFilmSelectedListener {
+class MainActivity : AppCompatActivity(), FilmListFragment.OnFilmIndexSelectedListener {
 
     private val isTwoPane: Boolean
         get() = findViewById<android.view.View?>(R.id.detailContainer) != null
@@ -13,25 +13,23 @@ class MainActivity : AppCompatActivity(), FilmListFragment.OnFilmSelectedListene
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // En 1-panel, si no hay fragment cargado (primer arranque), muestra la lista
         if (!isTwoPane && savedInstanceState == null) {
             supportFragmentManager.commit {
                 replace(R.id.fragmentContainer, FilmListFragment())
             }
         }
-        // En 2-panel, los FragmentContainerView del layout ya instancian lista y detalle vacíos.
     }
 
-    override fun onFilmSelected(film: Film) {
+    override fun onFilmIndexSelected(index: Int) {
         if (isTwoPane) {
-            // Reemplaza solo el panel de detalle
-            supportFragmentManager.commit {
-                replace(R.id.detailContainer, FilmDataFragment.newInstance(film))
-            }
+            // Actualiza el fragment de detalle estático
+            (supportFragmentManager.findFragmentById(R.id.detailContainer) as? FilmDataFragment)
+                ?.updateWithIndex(index)
         } else {
-            // Navega al detalle en el único contenedor y añade al back stack
+            // Navega al detalle en 1 panel
             supportFragmentManager.commit {
-                replace(R.id.fragmentContainer, FilmDataFragment.newInstance(film))
+                setReorderingAllowed(true)
+                replace(R.id.fragmentContainer, FilmDataFragment.newInstance(index))
                 addToBackStack("detail")
             }
         }
