@@ -1,3 +1,30 @@
 <resources>
-    <string name="app_name">Filmoteca Fragmentos</string>
+
+        <string name="app_name">Filmoteca</string>
+        <string name="mi_filmoteca">Mi Filmoteca</string>
+        <string name="ver_listado">Ver listado</string>
+        <string name="about">Acerca de</string>
+        <string name="salir">Salir</string>
+
+        <!--AboutActivity.xml-->
+        <string name="desc_imagen_autor">Autor</string>
+        <string name="creado_por">Creado por MMG</string>
+        <string name="ir_al_sitio_web">Sitio Web</string>
+        <string name="obtener_soporte">Soporte</string>
+        <string name="volver">Volver</string>
+
+
+
+        <string name="about_title">Acerca de Filmoteca</string>
+        <string name="about_body">Interfaz fragmentada (lista/detalle) y layouts adaptativos.</string>
+
+<!-- Añadir peli nueva -->
+        <string name="anadir_pelicula">Añadir película</string>
+        <string name="titulo">Título</string>
+        <string name="anio">Año</string>
+        <string name="guardar">Guardar</string>
+        <string name="guardado_ok">Película guardada</string>
+
+
+
 </resources>

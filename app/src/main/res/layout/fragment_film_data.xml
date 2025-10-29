@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="@dimen/card_padding">
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="vertical" android:divider="?android:attr/dividerHorizontal"
-        android:showDividers="middle">
+        android:padding="@dimen/card_padding">
 
-        <TextView
-            android:id="@+id/txtTitle"
-            android:textStyle="bold" android:textSize="20sp"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtYear"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/txtTitle"
+                android:textStyle="bold" android:textSize="20sp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
 
-        <TextView
-            android:id="@+id/txtDirector"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/txtYear"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:paddingTop="4dp"/>
 
-        <TextView
-            android:id="@+id/txtNotes"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:paddingTop="8dp"/>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/txtDirector"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:paddingTop="4dp"/>
+
+            <TextView
+                android:id="@+id/txtNotes"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:paddingTop="8dp"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 </ScrollView>
